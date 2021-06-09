@@ -9,10 +9,7 @@ import {
 
 export default (state, {type, payload}) => {
     switch (type) {
-        case SET_USER :
-            return {
-
-            }
+    
         case ADD_HOLIDAY:
             return {
                 ...state,

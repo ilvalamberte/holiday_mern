@@ -18,7 +18,6 @@ router.get('/', auth,  async (req,res) => {
     } catch(err) {
         console.error(err.message)
         res.status(500).send('Server Error')
-
     }
 
 })
@@ -33,7 +32,6 @@ router.post('/',
   async (req, res) => {
     const errors = validationResult(req)
   
-
     const { name, email, password } = req.body
 
     try {

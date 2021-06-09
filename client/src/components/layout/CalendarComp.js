@@ -24,16 +24,23 @@ const events = [
     },
     {
         id: 1,
-        title : 'Lily',
-        start: moment({ hours : 12}).toDate(),
-        end: moment({hours: 13}).toDate()
+        title : 'Sara',
+        start: new Date(2021, 5, 0),
+        end: new Date(2021, 5, 4)
     },
     {
-        id: 2,
-        title : 'Meeting',
-        start: moment({ hours : 13}).toDate(),
-        end: moment({hours: 15}).toDate()
-    }
+      id: 1,
+      title : 'Cindy',
+      start: new Date(2021, 5, 0),
+      end: new Date(2021, 5, 10)
+  },
+  {
+    id: 1,
+    title : 'Linda',
+    start: new Date(2021, 5, 10),
+    end: new Date(2021, 5, 21)
+},
+  
 ];
 
 const CalendarComp = () => {

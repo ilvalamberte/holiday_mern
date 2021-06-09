@@ -15,8 +15,6 @@ const Login = (props) => {
 
     }, [userAuth, props.history]);
 
-    console.log(userAuth);
-
     const [user, setUser] = useState({
         email:'',
         password: ''
@@ -25,10 +23,10 @@ const Login = (props) => {
     const {email, password} = user
 
     const handleChange = (e) => {
-       
         setUser({...user, 
         [e.target.name] : e.target.value})
     }
+
     const submit = (e) => {
         e.preventDefault();
         console.log(user);
@@ -40,15 +38,14 @@ const Login = (props) => {
     }
     return (
         <div className="register">
-            <h1>Login</h1>
+           
             <form onSubmit={submit} class="loginForm">
-              
                 <input type="email" name="email" type="email" placeholder="email" value={email} onChange={handleChange}></input>
                 <input type="password" name="password" placeholder="password" value={password} onChange={handleChange}></input>
-                <input type="submit" value="Sign Up" className="buttonSign"></input>
+                <input type="submit" value="Log In" className="buttonSign"></input>
             </form>
             <div className="question">
-                <p>Already have an account? <Link to="/register">Sign Up</Link></p>
+                <p>Already have an account? <Link to="/register"></Link></p>
             </div>
         </div>
     )

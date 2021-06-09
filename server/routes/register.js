@@ -8,13 +8,10 @@ const jwt = require('jsonwebtoken')
 //user Model 
 const User = require('../models/User.js')
 
-
 router.post('/',
-
   async (req, res) => {
   
-
-    const { name, email, password, mobile, country, occupation } = req.body
+  const { name, email, password, mobile, country, occupation } = req.body
 
     try {
       // user already exits ?

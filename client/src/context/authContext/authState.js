@@ -22,22 +22,21 @@ const AuthState = (props) => {
 
     //getUser
 
-    const getUser = async () => {
+const getUser = async () => {
 if (localStorage.token) {
-    setToken(localStorage.token)
+    setToken(localStorage.token);
+    console.log(localStorage.token);
 }
 try {
-    const res = await axios.get('localhost:5000/auth');
+    const res = await axios.get('http://localhost:5000/auth');
     console.log(res.data)
     dispatch ({
         type: SET_USER,
         payload: res.data
     })
 } catch (err) {
-    console.log(err);
-
-}
-        
+    console.log("not fetched");
+}    
     }
 
 
@@ -96,10 +95,10 @@ try {
             <AuthContext.Provider value={{
                 user: state.user,
                 userAuth: state.userAuth,
+                getUser: getUser,
                 registerUser,
                 loginUser,
-                logout,
-                getUser
+                logout
                 }}
             >{props.children}
             </AuthContext.Provider>

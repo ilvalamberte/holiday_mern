@@ -12,13 +12,12 @@ import Navbar from './Navbar.js'
 
 const CompNav = () => {
   const {user, getUser} = useContext(AuthContext);
+
   useEffect (()=> {
     getUser()
-  }, [])
+  }, []) 
 
-  
-  console.log(user)
-
+  console.log(user);
     return (
         <div className="aside">
         <div className="user">
@@ -27,7 +26,6 @@ const CompNav = () => {
           </div>
           <div className="user__info">
             <h4>{user && user.email}</h4>
-            <h4>Username</h4>
             <p>Copenhagen</p>
           </div>
         </div>
