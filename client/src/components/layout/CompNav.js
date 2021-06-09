@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
+import AuthContext from '../../context/authContext/authContext.js'
 
 import {FcCalendar} from 'react-icons/fc'
 import {FcBusinessman} from 'react-icons/fc'
@@ -10,6 +11,13 @@ import Request from '../employee/Request.js'
 import Navbar from './Navbar.js'
 
 const CompNav = () => {
+  const {user, getUser} = useContext(AuthContext);
+  useEffect (()=> {
+    getUser()
+  }, [])
+
+  
+  console.log(user)
 
     return (
         <div className="aside">
@@ -18,16 +26,12 @@ const CompNav = () => {
             <img src="https://randomuser.me/api/portraits/men/79.jpg" alt="User photo" />
           </div>
           <div className="user__info">
-            <h4>Chris Warner</h4>
-            <p>Auckland, NZ</p>
+            <h4>{user && user.email}</h4>
+            <h4>Username</h4>
+            <p>Copenhagen</p>
           </div>
-    
         </div>
      <Navbar />
-     <div className="logoutBtn">
-         Logout
-     </div>
-    
       </div>
     )
 

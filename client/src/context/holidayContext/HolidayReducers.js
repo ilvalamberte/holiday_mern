@@ -3,11 +3,16 @@ import {
     CLEAR_SEARCH, 
     SEARCH_USER,
     ADD_HOLIDAY,
-    REMOVE_HOLIDAY
+    REMOVE_HOLIDAY,
+
 } from '../types'
 
 export default (state, {type, payload}) => {
     switch (type) {
+        case SET_USER :
+            return {
+
+            }
         case ADD_HOLIDAY:
             return {
                 ...state,

@@ -28,7 +28,7 @@ function Home () {
 
   <div className="main">
     <header>
-      <h4>Logo</h4>
+  
       <form>
   <div className="inputWrapper">
 	<input type="search" placeholder="Search" onChange={handleChange}>

@@ -1,3 +1,4 @@
+ /* eslint-disable */ 
 import React, {useContext} from 'react'
 import HolidayContext from '../../context/holidayContext/HolidayContext.js'
 import { FcApproval } from 'react-icons/fc'
@@ -12,16 +13,11 @@ const Holidays = () => {
 const {holidays, toggleFilter, filterGuest} = useContext(HolidayContext);
 
     return (  
-
-
     <body>
-   
     <div className="container">
     <CompNav />
-    
       <div className="main">
         <header>
-
         <label class="label">
 <div class="toggle">
   <input class="toggle-state" type="checkbox" name="check" value="check" onChange={()=> toggleFilter() }/>
@@ -29,12 +25,10 @@ const {holidays, toggleFilter, filterGuest} = useContext(HolidayContext);
 </div>
 <div class="label-text">ACCEPTED</div>
 </label>
-
         </header>
-    
         <div className="section">
         <div className="mail-detail">
- 
+
 {holidays.filter(holiday => !filterGuest || holiday.status).map(holiday => <Holiday key={holiday.id} holiday={holiday}/>)}
 
     </div>   

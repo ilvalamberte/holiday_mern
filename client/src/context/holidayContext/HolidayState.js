@@ -1,3 +1,4 @@
+ /* eslint-disable */
 import React, {useReducer} from 'react';
 import HolidayContext from '../holidayContext/HolidayContext.js'
 import HolidayReducer from '../holidayContext/HolidayReducers.js'
@@ -75,7 +76,7 @@ const HolidayState = (props) => {
                 
             },
             {
-                name:  "Elisabeth",
+                name:  "Daniel",
                 occupation: "Developer",
                 country: "Sweden",
                 mobile: "+45 283993424",
@@ -95,7 +96,7 @@ const HolidayState = (props) => {
                 
             },
             {
-                name:  "Signe",
+                name:  "Simon",
                 occupation: "Developer",
                 country: "Sweden",
                 mobile: "+45 283993424",
@@ -126,7 +127,6 @@ const HolidayState = (props) => {
             type: ADD_HOLIDAY,
             payload: holiday
         })
-
     }
 
     const removeHoliday = (id) => {
@@ -158,6 +158,14 @@ const HolidayState = (props) => {
 
     }
 
+    const approveHoliday = (holiday) => {
+        holiday.status = true;
+        dispatch ({
+            type: APPROVE_HOLIDAY,
+            payload: holiday
+        })
+    }
+
     
     return (
         <HolidayContext.Provider value={{
@@ -169,7 +177,8 @@ const HolidayState = (props) => {
             searchUser,
             clearSearch,
             addHoliday,
-            removeHoliday
+            removeHoliday,
+            approveHoliday,
         }}>{props.children}</HolidayContext.Provider>
 
     )

@@ -2,11 +2,27 @@ import {
     SUCCESS_REGISTER,
     SUCCESS_LOGIN,
     FAIL_REGISTER,
-    FAIL_LOGIN
+    FAIL_LOGIN,
+    LOG_OUT,
+    SET_USER
 } from '../types.js'
 
 export default (state, action) => {
-    switch (action.type){
+    switch (action.type) {
+        case SET_USER : 
+        return {
+            ...state,
+            user: action.payload,
+            userAuth: true,
+            
+        }
+        case LOG_OUT : 
+            localStorage.removeItem('token')
+            return {
+                ...state,
+                userAuth: false,
+                errors: null
+            }
         case SUCCESS_REGISTER:
             localStorage.setItem('token', action.payload.token)
             return {
@@ -14,7 +30,6 @@ export default (state, action) => {
                 userAuth: true,
                 errors:null,
             }
-
         case SUCCESS_LOGIN:
             localStorage.setItem('token', action.payload.token)
             return {

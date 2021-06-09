@@ -1,3 +1,4 @@
+ /* eslint-disable */ 
 import React from 'react'
 import CompNav from '../layout/CompNav.js'
 import { FcCalendar } from 'react-icons/fc'
@@ -13,10 +14,7 @@ const EditProfile = () => {
         <CompNav />
         
           <div className="main">
-            <header>
-              <h4>Logo</h4>
- 
-            </header>
+          
         
             <div className="section">
             <div className="mail-detail">
@@ -34,23 +32,24 @@ const EditProfile = () => {
    </div>
 
    <div className="mail-checklist">
-   <input type="text" title="username" placeholder="Date" />
-
+   <input type="text" title="username" placeholder="Name" />
    </div>
    <div className="mail-checklist">
-   <input type="text" title="username" placeholder="Type of Holiday" />
-
+   <input type="text" title="username" placeholder="Email" />
    </div>
    <div className="mail-checklist">
-   <input type="text" title="username" placeholder="Holiday Title" />
-
+   <input type="text" title="username" placeholder="Password" />
    </div>
-
-
    <div className="mail-checklist">
-   <input type="text" title="username"  placeholder="Write a comment..." />
-
+   <input type="text" title="username" placeholder="Occupation" />
    </div>
+   <div className="mail-checklist">
+   <input type="text" title="username" placeholder="Country" />
+   </div>
+   <div className="mail-checklist">
+   <input type="text" title="username" placeholder="Mobile" />
+   </div>
+
 
    <div class="buttons">
 <div class="button">Update</div>

@@ -1,3 +1,4 @@
+ /* eslint-disable */ 
 import React, {useState, useContext} from 'react'
 import HolidayContext from '../../context/holidayContext/HolidayContext.js'
 import CompNav from '../layout/CompNav.js'
@@ -13,25 +14,19 @@ const Request = () => {
 
   const [startDate, setStartDate] = useState(new Date("2014/02/08"));
   const [endDate, setEndDate] = useState(new Date("2014/02/10"));
-
   const [holiday, setHoliday] = useState({
     date: '',
     type: '',
     title: '',
     comment: ''
   })
-
   const {date, type, title, comment} = holiday
-
-
   const handleChange = (e) => {
-
     setHoliday({
       ...holiday,
       [e.target.name]: e.target.value
     })
   }
-
   const onsubmit = (e) => {
     e.preventDefault();
     console.log(holiday);
@@ -52,10 +47,6 @@ const Request = () => {
         <CompNav />
         
           <div className="main">
-            <header>
-              <h4>Logo</h4>
- 
-            </header>
         
             <div className="section">
             <div className="mail-detail">
@@ -64,7 +55,7 @@ const Request = () => {
   <div className="mail-contents-subject">
    <input type="checkbox" name="msg" id="mail20" className="mail-choice" checked />
    <label for="mail20"></label>
-   <div className="mail-contents-title">Request a Holiday</div>
+
   </div>
   <div className="">
   
@@ -88,7 +79,7 @@ const Request = () => {
     
    </div>
    
-   <div className="mail-inside">Send Holiday Requests</div>
+
 
 
 
@@ -111,7 +102,7 @@ const Request = () => {
 
    <div class="buttons">
 
-<div class="button" onClick={onsubmit}>Send Request</div>
+<div class="button button-primary" onClick={onsubmit}>Send</div>
 
 </div>
 

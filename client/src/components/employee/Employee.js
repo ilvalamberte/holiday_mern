@@ -1,3 +1,4 @@
+ /* eslint-disable */ 
 import React, {useContext} from 'react';
 import HolidayContext from '../../context/holidayContext/HolidayContext.js'
 
@@ -14,7 +15,7 @@ const Employee = ({user}) => {
         <p className="card__country">{occupation}</p>
         <p className="card__status badge success">{mobile}</p>
         <p className="card__article">{country}</p>
-        <p className="card__status">SHOW FULL PROFILE</p>
+        <p className="buttonCard">SHOW PROFILE</p>
       </div>
    
     )

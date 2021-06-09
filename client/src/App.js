@@ -1,4 +1,4 @@
-
+ /* eslint-disable */ 
 import './App.css';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -14,6 +14,15 @@ import EditProfile from './components/employee/EditProfile.js'
 import CalendarComp from './components/layout/CalendarComp.js'
 import Register from './components/pages/Register.js'
 import Login from './components/pages/Login.js'
+import AdminPage from './components/layout/AdminPage';
+import PrivateRoute from '../src/components/pages/routes/PrivateRoute.js'
+import setToken from '../src/utils/setToken.js'
+
+
+//if there is a token in local, assign it to setToken
+if (localStorage.token) {
+  setToken(localStorage.token)
+}
 
 function App() {
 
@@ -23,21 +32,18 @@ function App() {
   <AuthState>
   <HolidayState>
   <Router>
-
     <Switch>
-
 <Route path="/editpr" component={EditProfile} />  
 <Route path="/request" component={Request} />  
-<Route path="/members" component={Home} />
-<Route path="/holidays" component={Holidays} />
-<Route path="/navbar" component={Navbar} />
-<Route path="/calendarcomp" component={CalendarComp} />
-<Route path="/holiday" component={Holiday} />
+<PrivateRoute path="/members" component={Home} />
+<PrivateRoute path="/holidays" component={Holidays} />
+<PrivateRoute path="/navbar" component={Navbar} />
+<PrivateRoute path="/calendarcomp" component={CalendarComp} />
+<PrivateRoute path="/holiday" component={Holiday} />
 <Route path="/login" component={Login} />
 <Route path="/register" component={Register} />
-
-</Switch>
-
+<Route path="/admin" component={AdminPage} />
+  </Switch>
   </Router>
   </HolidayState>
   </AuthState>

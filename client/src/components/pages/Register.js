@@ -1,3 +1,4 @@
+ /* eslint-disable */ 
 import React, {useState, useContext, useEffect} from 'react';
 import AuthContext from '../../context/authContext/authContext.js'
 import {Link, useHistory} from 'react-router-dom';
@@ -55,7 +56,7 @@ const Register = (props) => {
     return (
         <div className="register">
             <h1>Sign Up</h1>
-            <form onSubmit={submit}>
+            <form onSubmit={submit} className="loginForm">
                 <input type="text" name="name" placeholder="name surname" value={name} onChange={handleChange}></input>
                 <input type="email" name="email" type="email" placeholder="email" value={email} onChange={handleChange}></input>
                 <input type="password" name="password" placeholder="password" value={password} onChange={handleChange}></input>
@@ -63,7 +64,7 @@ const Register = (props) => {
                 <input type="text" name="country" type="text" placeholder="country" value={country} onChange={handleChange}></input>
                 <input type="text" name="mobile" placeholder="mobile" value={mobile} onChange={handleChange}></input>
                 <input type="text" name="laptop" placeholder="laptop" value={laptop} onChange={handleChange}></input>
-                <input type="submit" value="Sign Up"></input>
+                <input type="submit" value="Sign Up" class="buttonSign"></input>
             </form>
             <div className="question">
                 <p>Already have an account? <Link to="/login">Login</Link></p>

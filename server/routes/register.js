@@ -10,17 +10,11 @@ const User = require('../models/User.js')
 
 
 router.post('/',
-  [
-    check('name', 'Please provide a name').not().isEmpty(),
-    check('email', 'Please provide an email').isEmail(),
-    check('password', 'Password at least 6 character long').isLength({ min: 6 })
 
-  ],
   async (req, res) => {
-    const errors = validationResult(req)
   
 
-    const { name, email, password } = req.body
+    const { name, email, password, mobile, country, occupation } = req.body
 
     try {
       // user already exits ?
@@ -29,7 +23,10 @@ router.post('/',
       user = new User({
         name,
         email,
-        password
+        password,
+        mobile,
+        country, 
+        occupation
       })
 
       // password encryption

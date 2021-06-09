@@ -1,19 +1,44 @@
+ /* eslint-disable */ 
 import React, { useReducer } from 'react';
 import axios from 'axios';
 import AuthContext from './authContext.js';
-import authReducers from './authReducers.js'
+import authReducers from './authReducers.js';
+import setToken from '../../utils/setToken.js'
 import { FAIL_REGISTER, 
         SUCCESS_LOGIN,
         FAIL_LOGIN,
-        SUCCESS_REGISTER
+        SUCCESS_REGISTER,
+        LOG_OUT,
+        SET_USER
     } from '../types.js'
 
 const AuthState = (props) => {
     const initialState = {
+        user: null,
         userAuth:null,
         errors: null
     }
     const [state, dispatch] = useReducer(authReducers, initialState);
+
+    //getUser
+
+    const getUser = async () => {
+if (localStorage.token) {
+    setToken(localStorage.token)
+}
+try {
+    const res = await axios.get('localhost:5000/auth');
+    console.log(res.data)
+    dispatch ({
+        type: SET_USER,
+        payload: res.data
+    })
+} catch (err) {
+    console.log(err);
+
+}
+        
+    }
 
 
     const registerUser = async user => {
@@ -60,13 +85,21 @@ const AuthState = (props) => {
         }
     }
 
+    const logout = () => {
+        dispatch ({
+            type: LOG_OUT
+        })
+    }
+
     return (
         <div>
             <AuthContext.Provider value={{
+                user: state.user,
                 userAuth: state.userAuth,
                 registerUser,
-                loginUser
-
+                loginUser,
+                logout,
+                getUser
                 }}
             >{props.children}
             </AuthContext.Provider>
